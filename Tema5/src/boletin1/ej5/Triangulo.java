@@ -53,38 +53,52 @@ public class Triangulo extends Poligono {
 	public double getLado1() {
 		return lado1;
 	}
-
 	/**
 	 * Método set del lado 1 que modifica su valor
 	 * 
-	 * @param lado1 El lado 1 del triángulo
+	 * @param lado1 El nuevo valor del lado 1 del triángulo
 	 */
 	public void setLado1(double lado1) {
 		if (lado1 > 0) {
 			this.lado1 = lado1;
 		}
 	}
-
+	/**
+	 * Método get del lado 2 
+	 * @return El valor del lado 2
+	 */
 	public double getLado2() {
 		return lado2;
 	}
-
+	/**
+	 * Método set del lado 2 que modifica su valor
+	 * @param lado2 El nuevo valor del lado 2 del triángulo
+	 */
 	public void setLado2(double lado2) {
 		if (lado2 > 0) {
 			this.lado2 = lado2;
 		}
 	}
-
+	/**
+	 * Método get del lado 3
+	 * @return El valor del lado 3 del triángulo
+	 */
 	public double getLado3() {
 		return lado3;
 	}
-
+	/**
+	 * Método set del lado 3 que modifica el valor
+	 * @param lado3 El nuevo valor del lado 3 del triángulo
+	 */
 	public void setLado3(double lado3) {
 		if (lado3 > 0) {
 			this.lado3 = lado3;
 		}
 	}
 
+	/**
+	 * Método area que calcula el área del triángulo y devuelve el valor
+	 */
 	public double area() {
 		double semiPerimetro = (lado1 + lado2 + lado3) / 2;
 		double area = Math
@@ -92,6 +106,9 @@ public class Triangulo extends Poligono {
 		return area;
 	}
 
+	/**
+	 * Método toString que devuelve el nombre de la clase padre, la clase hija y los lados 
+	 */
 	@Override
 	public String toString() {
 		return "Polígono -> Triángulo: lado1 " + lado1 + ", lado2 " + lado2 + ", lado3 " + lado3;

@@ -3,20 +3,28 @@ package boletin1.ej5;
 import java.util.Scanner;
 
 public class PoligonoMain {
-
+	// Creamos el Scanner
 	static Scanner reader = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		// Declaración de variables
+		// Variable que guarda la opción del usuario
 		int opc;
+		// Variable que guarda un lado de un polígono
 		double lado1;
+		// Variable que guarda un lado de un polígono
 		double lado2;
+		// Variable que guarda un lado de un polígono
 		double lado3;
 
+		// Do-while que sale del bucle cuando lo elige el usuario
 		do {
+			// Imprimimos el menú
 			menu();
 			opc = reader.nextInt();
 			reader.nextLine();
 
+			// Switch según el valor de la opción
 			switch (opc) {
 			case 1 -> {
 				// Introducir un triángulo
@@ -53,9 +61,11 @@ public class PoligonoMain {
 			}
 		} while (opc != 0);
 
+		// Cerramos el Scanner
 		reader.close();
 	}
 
+	// Función que imprime el manú
 	public static void menu() {
 		System.out.println("1. Introducir triángulo");
 		System.out.println("2. Introducir rectángulo");

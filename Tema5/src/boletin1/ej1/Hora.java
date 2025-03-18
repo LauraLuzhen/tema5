@@ -1,53 +1,45 @@
 package boletin1.ej1;
 
+/**
+ * Clase Hora que va a establecer la hora, minutos y segundos
+ */
 public class Hora {
-
+	/**
+	 * Atributo hora de la Hora
+	 */
 	private int hora;
+	/**
+	 * Atributo minuto de la Hora
+	 */
 	private int min;
 	
-	public Hora(int hora, int minuto) {
+	/**
+	 * Constructor de Hora que establece los minutos y la hora
+	 * @param hora La hora de la Hora
+	 * @param min Los minutos de la Hora
+	 */
+	public Hora(int hora, int min) {
 		if (hora >= 0 && hora < 24) {
-			this.hora = hora;
+			this.hora = hora;		
 		}
-		if (minuto >= 0 && minuto < 60) {
-			this.min = minuto;
+		if (min >= 0 && min < 60) {
+			this.min = min;
 		}
 	}
 	
+	/**
+	 * Método que incrementa un minuto y la hora si es el caso
+	 */
 	public void inc() {
-		min++;
+		this.min++;
 		if (min == 60) {
-			min = 0;
+			this.min = 0;
+			this.hora++;
+			if (hora == 24) {
+				this.hora = 0;
+			}
 		}
 	}
 	
-	public boolean setMinutos(int valor) {
-		boolean aplicado;
-		if (valor >= 0 && valor < 60) {
-			this.min = valor;
-			aplicado = true;
-		} else {
-			aplicado = false;
-		}
-		
-		return aplicado;
-	}
-	
-	public boolean setHora(int valor) {
-		boolean aplicado;
-		if (valor >= 0 && valor < 60) {
-			this.hora = valor;
-			aplicado = true;
-		} else {
-			aplicado = false;
-		}
-		
-		return aplicado;
-	}
-
-	@Override
-	public String toString() {
-		return hora + ":" + min;
-	}
 	
 }
