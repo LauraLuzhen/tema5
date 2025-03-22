@@ -1,49 +1,58 @@
 package boletin1.ej4;
 
 /**
- * Clase Electrodomestico donde vamos a guardar toda la información
+ * Clase Electrodoméstico donde vamos a definir un electrodoméstico con su
+ * precio base, color, consumo energético y peso
  */
 public class Electrodomestico {
 	/**
-	 * Atributo precioBase que guarda el precio del producto
-	 */
-	private double precioBase = 100;
-	/**
-	 * Atributo color que guarda el color del producto
-	 */
-	private Color color = Color.BLANCO;
-	/**
-	 * Atributo que guarda el consumo energético
-	 */
-	private ConsumoEnergetico consumoEnergetico = ConsumoEnergetico.F;
-	/**
-	 * Atributo que guarda el peso del producto
-	 */
-	private double peso = 5;
-
-	/**
-	 * Enum Color que guarda los posibles colores del producto
+	 * Enum Color que guarda los posibles colores que puede tener un
+	 * electrodoméstico
 	 */
 	enum Color {
-		BLANCO, NEGRO, ROOJO, AZUL, GRIS
+		BLANCO, NEGRO, ROJO, AZUL, GRIS
 	}
 
 	/**
-	 * Enum Consumo energético que guarda los posibles valores
+	 * Enum ConsumoEnergetico que guarda los posibles consumos que puede tener un
+	 * electrodoméstico
 	 */
 	enum ConsumoEnergetico {
 		A, B, C, D, E, F
 	}
 
 	/**
-	 * Constructor de la clase que recibe dos atributos
-	 * 
-	 * @param precio El precio del producto
-	 * @param peso   El peso del producto
+	 * Atributo precioBase que guarda el precio base del electrodoméstico, por
+	 * defecto será 100
 	 */
-	public Electrodomestico(double precio, double peso) {
-		if (precio > 0) {
-			this.precioBase = precio;
+	private double precioBase = 100;
+	/**
+	 * Atributo color que guarda el color del electrodoméstico, por defecto es
+	 * blanco
+	 */
+	private Color color = Color.BLANCO;
+	/**
+	 * Atributo consumoEnergetico que guarda el consumo energético del
+	 * electrodoméstico, por defecto será F
+	 */
+	private ConsumoEnergetico consumoEnergetico = ConsumoEnergetico.F;
+	/**
+	 * Atributo precio que guarda el precio del electrodoméstico, por defecto sera
+	 * 5kg
+	 */
+	private double peso = 5;
+
+	/**
+	 * Constructor Electrodomestico que establece los valores precioBase y peso que
+	 * recibe
+	 * 
+	 * @param precioBase El precio base del electrodoméstico que debe ser mayor que
+	 *                   0
+	 * @param peso       El peso del electrodoméstico que debe ser mayor que 0
+	 */
+	public Electrodomestico(double precioBase, double peso) {
+		if (precioBase > 0) {
+			this.precioBase = precioBase;
 		}
 		if (peso > 0) {
 			this.peso = peso;
@@ -51,37 +60,87 @@ public class Electrodomestico {
 	}
 
 	/**
-	 * Constructor de la clase que recibe todos los atributos
+	 * Constructor Electrodoméstico que recibe todos los atributos y establece los
+	 * valores a cada uno de ellos
 	 * 
-	 * @param precio  El precio del producto
-	 * @param color   El color del producto
-	 * @param consumo El consumo energético del producto
-	 * @param peso    El peso del producto
+	 * @param precioBase        El precio base del electrodoméstico debe ser mayor
+	 *                          que 0
+	 * @param color             El color del electrodoméstico debe ser un valor del
+	 *                          enum Color
+	 * @param consumoEnergetico El consumo energético del electrodoméstico debe ser
+	 *                          un valor del enum ConsumoEnergetico
+	 * @param peso              El peso del electrodoméstico que debe ser mayor a 0
 	 */
-	public Electrodomestico(double precio, String color, char consumo, double peso) {
-		if (precio > 0) {
-			this.precioBase = precio;
-		}
-		if (peso > 0) {
-			this.peso = peso;
+	public Electrodomestico(double precioBase, String color, char consumoEnergetico, double peso) {
+		if (precioBase > 0) {
+			this.precioBase = precioBase;
 		}
 		comprobarColor(color);
-		comprobarConsumoEnergetico(consumo);
+		comprobarConsumoEnergetico(consumoEnergetico);
+		if (peso > 0) {
+			this.peso = peso;
+		}
 	}
 
 	/**
-	 * Método get del precio base donde obtenemos su valor
+	 * Método get de color que obtiene el valor del color
 	 * 
-	 * @return El contenido del precio base del producto
+	 * @return El valor del color del electrodoméstico
+	 */
+	public Color getColor() {
+		return color;
+	}
+
+	/**
+	 * Método set del color que modifica su valor
+	 * 
+	 * @param color El nuevo valor del color del electrodoméstico
+	 */
+	public void setColor(String color) {
+		comprobarColor(color);
+	}
+
+	/**
+	 * Método get del consumo energético que devuelve su valor
+	 * 
+	 * @return El valor del consumo energético del electrodoméstico
+	 */
+	public ConsumoEnergetico getConsumoEnergetico() {
+		return consumoEnergetico;
+	}
+
+	/**
+	 * Método set del consumo energético que modifica su valor
+	 * 
+	 * @param consumoEnergetico El nuevo valor del consumo energético del
+	 *                          electrodoméstico
+	 */
+	public void setConsumoEnergetico(char consumoEnergetico) {
+		comprobarConsumoEnergetico(consumoEnergetico);
+	}
+
+	/**
+	 * Método get del peso que devuelve su valor
+	 * 
+	 * @return El valor del peso del electrodoméstico
+	 */
+	public double getPeso() {
+		return peso;
+	}
+
+	/**
+	 * Método get del precio base que devuelve su valor
+	 * 
+	 * @return El valor del precio base del electrodoméstico
 	 */
 	public double getPrecioBase() {
 		return precioBase;
 	}
 
 	/**
-	 * Método set del precio base donde modificamos el valor
+	 * Método set del precio base que modifica su valor
 	 * 
-	 * @param precioBase El precio base del producto
+	 * @param precioBase El nuevo valor del precio base
 	 */
 	public void setPrecioBase(double precioBase) {
 		if (precioBase > 0) {
@@ -90,90 +149,36 @@ public class Electrodomestico {
 	}
 
 	/**
-	 * Método get del color donde obtenemos el valor
+	 * Función que comprueba el color que recibe y establece su valor si es correcto
 	 * 
-	 * @return El valor del color del producto
+	 * @param color El valor del color del electrodoméstico
 	 */
-	public Color getColor() {
-		return color;
-	}
-
-	/**
-	 * Método set del color donde modificamos el valor
-	 * 
-	 * @param color El color del producto
-	 */
-	public void setColor(String color) {
-		comprobarColor(color);
-	}
-
-	/**
-	 * Método get de consumo energético donde obtenemos el valor
-	 * 
-	 * @return El valor del consumo energético del producto
-	 */
-	public ConsumoEnergetico getConsumoEnergetico() {
-		return consumoEnergetico;
-	}
-
-	/**
-	 * Método set del consumo energético donde modificamos el valor
-	 * 
-	 * @param consumoEnergetico El consumo energético del producto
-	 */
-	public void setConsumoEnergetico(char consumoEnergetico) {
-		comprobarConsumoEnergetico(consumoEnergetico);
-	}
-
-	/**
-	 * Método get de peso donde obtenemos el valor
-	 * 
-	 * @return El valor del peso del producto
-	 */
-	public double getPeso() {
-		return peso;
-	}
-
-	/**
-	 * Método que comprueba si el valor del consumo energético es válido
-	 * 
-	 * @param letra El tipo de consumo del producto
-	 */
-	public void comprobarConsumoEnergetico(char letra) {
-		letra = Character.toUpperCase(letra);
-		switch (letra) {
-		case 'A', 'B', 'C', 'D', 'E', 'F' -> {
-			this.consumoEnergetico = ConsumoEnergetico.valueOf(String.valueOf(letra));
-		}
-		}
-	}
-
-	/**
-	 * Método que comprueba si el valor del color es válido
-	 * 
-	 * @param color El color del producto
-	 */
-	public void comprobarColor(String color) {
+	private void comprobarColor(String color) {
 		color = color.toUpperCase();
 		switch (color) {
-		case "BLANCO", "NEGRO", "ROOJO", "AZUL", "GRIS" -> {
-			this.color = Color.valueOf(color);
-		}
+		case "BLANCO", "NEGRO", "ROJO", "AZUL", "GRIS" -> this.color = Color.valueOf(color);
 		}
 	}
 
 	/**
-	 * Método que calcula el precio final según el consumo y el tamaño
+	 * Función que comprueba el consumo energético que recibe y estable su valor si
+	 * es correcto
+	 * 
+	 * @param consumoEnergetico El valor del consumo energético del electrodoméstico
+	 */
+	private void comprobarConsumoEnergetico(char consumoEnergetico) {
+		consumoEnergetico = Character.toUpperCase(consumoEnergetico);
+		switch (consumoEnergetico) {
+		case 'A', 'B', 'C', 'D', 'E', 'F' ->
+			this.consumoEnergetico = ConsumoEnergetico.valueOf(String.valueOf(consumoEnergetico));
+		}
+	}
+
+	/**
+	 * Función precio final que varía según el consumo energético y el peso del
+	 * electrodoméstico
 	 */
 	public void precioFinal() {
-		precioFinalConsumo();
-		precioFinalTamaño();
-	}
-
-	/**
-	 * Método que modifica el precio según el consumo energético del producto
-	 */
-	public void precioFinalConsumo() {
 		switch (consumoEnergetico) {
 		case A -> precioBase += 100;
 		case B -> precioBase += 80;
@@ -182,20 +187,24 @@ public class Electrodomestico {
 		case E -> precioBase += 30;
 		case F -> precioBase += 10;
 		}
+
+		if (peso >= 0 && peso <= 19) {
+			precioBase += 10;
+		} else if (peso >= 20 && peso <= 49) {
+			precioBase += 50;
+		} else if (peso >= 50 && peso <= 79) {
+			precioBase += 80;
+		} else if (peso >= 80) {
+			precioBase += 100;
+		}
 	}
 
 	/**
-	 * Método que modifica el precio según el tamaño
+	 * Método toString que devuelve el la información del electrodoméstico con el
+	 * preico base, color, consumo energético y peso
 	 */
-	public void precioFinalTamaño() {
-		if (precioBase >= 0 && precioBase <= 19) {
-			precioBase += 10;
-		} else if (precioBase >= 20 && precioBase <= 49) {
-			precioBase += 50;
-		} else if (precioBase >= 50 && precioBase <= 79) {
-			precioBase += 80;
-		} else {
-			precioBase += 100;
-		}
+	public String toString() {
+		return "Electrodoméstico: precio base " + precioBase + ", color " + color + ", consumo energético "
+				+ consumoEnergetico + ", peso " + peso;
 	}
 }
