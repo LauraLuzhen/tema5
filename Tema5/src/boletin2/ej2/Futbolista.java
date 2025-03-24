@@ -5,7 +5,7 @@ package boletin2.ej2;
  * camiseta, el nombre, la edad, y el número total de goles que lleva. Esta
  * clase implementa de Comparable
  */
-public class Futbolista implements Comparable<Futbolista> {
+public class Futbolista implements Comparable<Object> {
 	/**
 	 * Atributo numCamiseta que guarda el número de camiseta del Futbolista
 	 */
@@ -120,9 +120,27 @@ public class Futbolista implements Comparable<Futbolista> {
 	}
 
 	/**
+	 * Método compareTo de Futbolista que ordena primero por número de camiseta y
+	 * luego por el nombre del futbolista
+	 */
+	public int compareTo(Object obj) {
+		int res;
+		Futbolista futbolista = (Futbolista) obj;
+		if (this.numCamiseta > futbolista.numCamiseta) {
+			res = 1;
+		} else if (this.numCamiseta < futbolista.numCamiseta) {
+			res = -1;
+		} else {
+			res = this.nombre.compareTo(futbolista.nombre);
+		}
+		return res;
+	}
+	
+	/**
 	 * Método toString de Futbolista que devuelve el número de camiseta, el nombre,
 	 * edad y número de goles del futbolista
 	 */
+	@Override
 	public String toString() {
 		return "Jugador " + numCamiseta + " " + nombre + " con " + edad + " años, tiene " + numGoles + " goles.";
 	}
@@ -131,6 +149,7 @@ public class Futbolista implements Comparable<Futbolista> {
 	 * Método equals de Futbolista, dos futbolistas son iguales si coinciden en el
 	 * número de la camiseta y el nombre
 	 */
+	@Override
 	public boolean equals(Object o) {
 		Futbolista futbolista = (Futbolista) o;
 		boolean iguales = false;
@@ -138,21 +157,5 @@ public class Futbolista implements Comparable<Futbolista> {
 			iguales = true;
 		}
 		return iguales;
-	}
-
-	/**
-	 * Método compareTo de Futbolista que ordena primero por número de camiseta y
-	 * luego por el nombre del futbolista
-	 */
-	public int compareTo(Futbolista f) {
-		int res;
-		if (this.numCamiseta > f.numCamiseta) {
-			res = 1;
-		} else if (this.numCamiseta < f.numCamiseta) {
-			res = -1;
-		} else {
-			res = this.nombre.compareTo(f.nombre);
-		}
-		return res;
 	}
 }

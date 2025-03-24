@@ -3,7 +3,7 @@ package boletin2.ej1;
 /**
  * Clase Socio que implementa de Comparable y un socio tiene id, nombre y edad
  */
-public class Socio implements Comparable<Socio> {
+public class Socio implements Comparable<Object>{
 	/**
 	 * Atributo id que guarda el id del Socio
 	 */
@@ -37,24 +37,25 @@ public class Socio implements Comparable<Socio> {
 	}
 
 	/**
+	 * Método compareTo de Socio que ordena de menor a mayor
+	 */
+	public int compareTo(Object obj) {
+		int res = 0;
+		Socio socio = (Socio) obj;
+		if (this.id > socio.id) {
+			res = 1;
+		}
+		if (this.id < socio.id) {
+			res = -1;
+		}
+		return res;
+	}
+
+	/**
 	 * Método toString de Socio que indica el nombre, edad e id del Socio
 	 */
 	@Override
 	public String toString() {
 		return "Socio " + nombre + " con " + edad + " años e id " + id;
-	}
-
-	/**
-	 * Método compareTo de Socio que ordena de menor a mayor
-	 */
-	public int compareTo(Socio o) {
-		int res = 0;
-		if (this.id > o.id) {
-			res = 1;
-		}
-		if (this.id < o.id) {
-			res = -1;
-		}
-		return res;
 	}
 }
