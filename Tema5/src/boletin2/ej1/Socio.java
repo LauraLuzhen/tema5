@@ -47,7 +47,6 @@ public class Socio implements Comparable<Socio> {
 	/**
 	 * Método compareTo de Socio que ordena de menor a mayor
 	 */
-	@Override
 	public int compareTo(Socio o) {
 		int res = 0;
 		if (this.id > o.id) {
