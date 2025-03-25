@@ -19,21 +19,19 @@ public abstract class AnimalDomestico implements Animal{
 	}
 	
 	public void vacunar() {
-		
+		System.out.println("Vacunado");
 	}
 	
 	public abstract boolean hacerCaso();
 
 	@Override
 	public void comer() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Comiendo");
 	}
 
 	@Override
 	public void dormir() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Durmiendo");
 	}
 
 	@Override

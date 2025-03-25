@@ -9,7 +9,7 @@ public class Gato extends AnimalDomestico{
 	}
 
 	public void toserBolaPelo() {
-		
+		System.err.println("El gato ha vomitado");
 	}
 	
 	@Override

@@ -1,0 +1,42 @@
+Vehiculo
+	- String marca
+	- String modelo
+	- String color
+	- String matricula
+	- boolean motorEncendido
+	- int marcha
+	- double velocidad
+	----------------------------------
+	+ parar()
+	+ arrancar()
+	+ subirMarcha()
+	+ bajarMarcah()
+
+Turismo extends Vehiculo
+	- int numPlazas
+	- enum TipoUso {PROFESIONAL, PARTICULAR}
+	----------------------------------
+	+ parar()
+	+ arrancar()
+	+ subirMarcha()
+	+ bajarMarcah()
+
+Camion extends Vehiculo
+	- double pesoMax
+	- boolean mercanciaPeligrosa
+	----------------------------------
+	Heredados:
+		+ parar()
+		+ arrancar()
+		+ subirMarcha()
+		+ bajarMarcah()
+
+Motocicleta extends Vehiculo
+	- boolean funcionalidad
+	- int cilindrada
+	----------------------------------
+	Heredados:
+		+ parar()
+		+ arrancar()
+		+ subirMarcha()
+		+ bajarMarcah()

@@ -9,7 +9,7 @@ public class Perro extends AnimalDomestico {
 	}
 	
 	public void sacarPerro() {
-		
+		System.out.println("Se ha sacado al perro");
 	}
 
 	@Override
