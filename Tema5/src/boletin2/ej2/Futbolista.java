@@ -126,13 +126,10 @@ public class Futbolista implements Comparable<Object> {
 	public int compareTo(Object obj) {
 		int res;
 		Futbolista futbolista = (Futbolista) obj;
-		if (this.numCamiseta > futbolista.numCamiseta) {
-			res = 1;
-		} else if (this.numCamiseta < futbolista.numCamiseta) {
-			res = -1;
-		} else {
+		res = this.numCamiseta - futbolista.numCamiseta;
+		if (res == 0) {
 			res = this.nombre.compareTo(futbolista.nombre);
-		}
+		} 
 		return res;
 	}
 	
