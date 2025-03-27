@@ -13,8 +13,9 @@ Vehiculo
 	+ bajarMarcah()
 
 Turismo extends Vehiculo
+	enum Tipo {PROFESIONAL, PARTICULAR}
 	- int numPlazas
-	- enum TipoUso {PROFESIONAL, PARTICULAR}
+	- Tipo TipoUso
 	----------------------------------
 	+ parar()
 	+ arrancar()

@@ -25,7 +25,7 @@ public class Vehiculo {
 	 * Atributo motor encendido que indica si el motor está encendido o no del
 	 * vehículo
 	 */
-	private boolean motorEncendido;
+	private boolean motorEncendido = false;
 	/**
 	 * Atributo marcha que indica la marcha del vehículo puede ser 0-5, inicia a 0
 	 */
@@ -33,7 +33,7 @@ public class Vehiculo {
 	/**
 	 * Atributo velocidad del vehículo, inicia a 0
 	 */
-	private double velocidad = 0;
+	private int velocidad = 0;
 
 	/**
 	 * Constructor Vehiculo que recibe los atributos marca, modelo, color,
@@ -47,7 +47,7 @@ public class Vehiculo {
 	 * @param motorEncendido El motor del vehículo puede estar encendido (true) o
 	 *                       apagado (false)
 	 */
-	public Vehiculo(String marca, String modelo, String color, String matricula, boolean motorEncendido) {
+	public Vehiculo(String marca, String modelo, String color, String matricula) {
 		if (marca != null && !marca.isBlank()) {
 			this.marca = marca;
 		}
@@ -61,10 +61,15 @@ public class Vehiculo {
 			this.matricula = matricula;
 		}
 	}
+	
+	public String getMatricula() {
+		return matricula;
+	}
+	
+	public int getVelocidad() {
+		return velocidad;
+	}
 
-	/**
-	 * 
-	 */
 	public void parar() {
 		motorEncendido = false;
 		marcha = 0;
@@ -77,22 +82,42 @@ public class Vehiculo {
 		velocidad = 0;
 	}
 
-	public boolean subirMarcha() {
+	public boolean subirMarcha(int velocidad) {
 		boolean realizado = false;
-		if (marcha + 1 <= 5) {
-			marcha++;
+		if (velocidad > 0) {
 			realizado = true;
+			cambiarMarcha(velocidad);
+			this.velocidad = velocidad;
 		}
 		return realizado;
 	}
 
-	public boolean bajarMarcha() {
+	public boolean bajarMarcha(int velocidad) {
 		boolean realizado = false;
-		if (marcha - 1 >= 0) {
-			marcha--;
+		if (velocidad > 0 && this.velocidad > velocidad) {
 			realizado = true;
+			cambiarMarcha(velocidad);
+			this.velocidad = velocidad;
 		}
 		return realizado;
+	}
+
+	private void cambiarMarcha(int velocidad) {
+		if (velocidad >= 0 && velocidad < 30) {
+			marcha = 1;
+		}
+		if (velocidad >= 30 && velocidad < 50) {
+			marcha = 2;
+		}
+		if (velocidad >= 50 && velocidad < 70) {
+			marcha = 3;
+		}
+		if (velocidad >= 70 && velocidad < 100) {
+			marcha = 4;
+		}
+		if (velocidad >= 100) {
+			marcha = 5;
+		}
 	}
 
 	public String toString() {
