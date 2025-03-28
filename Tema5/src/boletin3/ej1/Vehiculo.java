@@ -44,8 +44,6 @@ public class Vehiculo {
 	 * @param modelo         El modelo del vehículo
 	 * @param color          El color del vehículo
 	 * @param matricula      La matrícula del vehículo
-	 * @param motorEncendido El motor del vehículo puede estar encendido (true) o
-	 *                       apagado (false)
 	 */
 	public Vehiculo(String marca, String modelo, String color, String matricula) {
 		if (marca != null && !marca.isBlank()) {
@@ -61,11 +59,11 @@ public class Vehiculo {
 			this.matricula = matricula;
 		}
 	}
-	
+
 	public String getMatricula() {
 		return matricula;
 	}
-	
+
 	public int getVelocidad() {
 		return velocidad;
 	}
@@ -120,6 +118,10 @@ public class Vehiculo {
 		}
 	}
 
+	/**
+	 * Método toString de Vehiculo que imprime los valores como marca, modelo,
+	 * color, matrícula, motorEncendido, marcha y velocidad del vehículo
+	 */
 	public String toString() {
 		return "Coche: marca " + marca + ", modelo " + modelo + ", color " + color + ", matricula " + matricula
 				+ ", motor encendido " + motorEncendido + ", marca " + marcha + ", velocidad " + velocidad;
