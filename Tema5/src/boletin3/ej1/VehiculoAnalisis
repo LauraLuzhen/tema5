@@ -16,10 +16,12 @@ class Vehiculo
 	+ setColor(String)
 	+ getMatricula()
 	----------------------------------
-	+ void parar()
-	+ void arrancar()
+	+ void pararMotor()
+	+ void arrancarMotor()
 	+ void subirMarcha()
 	+ void bajarMarcah()
+	+ void acelerar()
+	+ void frenar()
 
 
 class Turismo extends Vehiculo
@@ -29,11 +31,9 @@ class Turismo extends Vehiculo
 	----------------------------------
 	Turismo(marca, modelo, color, matricula, numPlazas, tipoUso)
 	----------------------------------
-	Heredados: 
-		+ parar()
-		+ arrancar()
-		+ subirMarcha()
-		+ bajarMarcah()
+	+ getNumPlazas()
+	+ getTipoUso()
+	+ setTipoUso(String)
 
 
 class Camion extends Vehiculo
@@ -42,11 +42,9 @@ class Camion extends Vehiculo
 	----------------------------------
 	Camion(marca, modelo, color, matricula, pasoMax, mercanciaPeligrosa)
 	----------------------------------
-	Heredados:
-		+ parar()
-		+ arrancar()
-		+ subirMarcha()
-		+ bajarMarcah()
+	+ getPesoMax()
+	+ getMercanciaPeligrosa()
+	+ setMercanciaPeligrosa(boolean)
 
 
 class Motocicleta extends Vehiculo
@@ -54,9 +52,6 @@ class Motocicleta extends Vehiculo
 	---------------------------------
 	Motocicleta(marca, modelo, color, matricula, cilindrada)
 	---------------------------------
+	+ getCilindrada()
+	---------------------------------
 	+ boolean requiereCarnet()
-	Heredados:
-		+ parar()
-		+ arrancar()
-		+ subirMarcha()
-		+ bajarMarcah()

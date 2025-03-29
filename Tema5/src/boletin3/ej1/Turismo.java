@@ -24,22 +24,67 @@ public class Turismo extends Vehiculo {
 	private int numPlazas;
 
 	/**
-	 * Constructor de Turismo que comprueba los atributos del vehículo llamado al
-	 * constructor de la clase padre y además recibe tipoUso y numPlazas
+	 * Constructor Vehiculo que recibe los atributos marca, modelo, color,
+	 * matrícula, motorEncendido y asigna sus valores
 	 * 
-	 * @param marca     La marca del vehículo no puede tener valor nulo ni estar en
+	 * @param marca     La marca del turismo no puede tener valor nulo ni estar en
 	 *                  blanco
-	 * @param modelo    El modelo del vehículo
-	 * @param color     El color del vehículo
-	 * @param matricula La matrícula del vehículo
-	 * @param tipoUso   El tipo de uso que hay que comprobar que tenga un valor
-	 *                  válido para asignarlo
-	 * @param numPlazas El número de plazas que debe ser mayor o igual a 1
+	 * @param modelo    El modelo del turismo no puede tener valor nulo ni estar en
+	 *                  blanco
+	 * @param color     El color del turismo no puede tener valor nulo ni estar en
+	 *                  blanco
+	 * @param matricula La matrícula del turismo no puede tener valor nulo ni estar
+	 *                  en blanco
+	 * @param tipoUso 	El tipo de uso del turismo que debe tener un valor válido
+	 * @param numPlazas El número de plazas del turismo que debe ser mayor o igual que 1
 	 */
 	public Turismo(String marca, String modelo, String color, String matricula, String tipoUso, int numPlazas) {
 		super(marca, modelo, color, matricula);
 		if (numPlazas >= 1) {
 			this.numPlazas = numPlazas;
+		}
+		comprobarTipoUso(tipoUso);
+	}
+
+	/**
+	 * Método get del tipo de uso que devuelve su valor
+	 * 
+	 * @return El valor del tipo de uso del turismo
+	 */
+	public Tipo getTipoUso() {
+		return tipoUso;
+	}
+
+	/**
+	 * Método set del tipo de uso que modifica su valor
+	 * 
+	 * @param tipoUso El nuevo valor del tipo de uso del turismo que debe tener un
+	 *                valor válido del enum
+	 */
+	public void setTipoUso(String tipoUso) {
+		comprobarTipoUso(tipoUso);
+	}
+
+	/**
+	 * Método get de número de plazas que devuelve su valor
+	 * 
+	 * @return El valor del número de plazas del turismo
+	 */
+	public int getNumPlazas() {
+		return numPlazas;
+	}
+
+	/**
+	 * Método comprobarTipoUso que asigna el valor del tipo de uso si es correcto
+	 * 
+	 * @param tipo El valor del tipo de uso del turismo
+	 */
+	private void comprobarTipoUso(String tipo) {
+		String tipoUso = tipo.toUpperCase();
+		switch (tipoUso) {
+		case "PROFESIONAL", "PARTICULAR" -> {
+			this.tipoUso = Tipo.valueOf(tipoUso);
+		}
 		}
 	}
 
