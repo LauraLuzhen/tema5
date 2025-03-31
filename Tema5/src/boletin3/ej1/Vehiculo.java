@@ -139,36 +139,22 @@ public class Vehiculo {
 		return velocidad;
 	}
 
+	/**
+	 * Función que para el motor y pone la marcha a 0
+	 */
 	public void parar() {
 		motorEncendido = false;
 		marcha = 0;
 	}
 
+	/**
+	 * Función que arranca el motor, lo pone a true y la marcha inicia a 0
+	 */
 	public void arrancar() {
 		motorEncendido = true;
 		marcha = 0;
 	}
 
-	public boolean subirMarcha(int velocidad) {
-		boolean realizado = false;
-		if (velocidad > 0) {
-			realizado = true;
-			cambiarMarcha(velocidad);
-			this.velocidad = velocidad;
-		}
-		return realizado;
-	}
-
-	public boolean bajarMarcha(int velocidad) {
-		boolean realizado = false;
-		if (velocidad > 0 && this.velocidad > velocidad) {
-			realizado = true;
-			cambiarMarcha(velocidad);
-			this.velocidad = velocidad;
-		}
-		return realizado;
-	}
-	
 	public void acelerar(int velocidad) {
 		while(this.velocidad < velocidad) {
 			this.velocidad++;

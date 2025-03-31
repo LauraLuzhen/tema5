@@ -1,0 +1,43 @@
+class Ficha
+	- int num
+	- String titulo
+	-------------------------------------------
+	getNum()
+	getTitulo()
+	setTitulo()
+	-------------------------------------------
+	+ abstract void prestamoVia()
+
+class Libro extends Ficha
+	- String autor
+	- String titular
+	-------------------------------------------
+	getAutor()
+	getTitular()
+	-------------------------------------------
+	Heredados:
+		+ void prestamoVia()
+
+class Revista extends Ficha
+	- int numRevista
+	- int añoPublicacion
+	-------------------------------------------
+	getNumRevista()
+	getAñoPublicacion()
+	-------------------------------------------
+	Heredados:
+		+ void prestamoVia()
+
+class Dvd extends Ficha
+	enum Tipo {PELÍCULA, DOCUMENTAL, SERIE}
+	- String director
+	- int año
+	- Tipo tipo
+	-------------------------------------------
+	getDirector()
+	getAño()
+	getTipo()
+	setTipo()
+	-------------------------------------------
+	Heredados:
+		+ void prestamoVia()

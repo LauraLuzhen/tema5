@@ -6,11 +6,13 @@ public class Ficha {
 	private String titulo;
 	
 	public Ficha(int id, String titulo) {
-		this.id = id;
-		this.titulo = titulo;
+		if (id > 0) {
+			this.id = id;
+		}
+		if (titulo != null && !titulo.isBlank()) {
+			this.titulo = titulo;
+		}
 	}
-	
-	
 	
 	public int getId() {
 		return id;

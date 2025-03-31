@@ -1,0 +1,14 @@
+long telefono
+
+double cuota
+double interes
+
+
+#double saldo
+
++ double aplicarInteres()
++ double aplicarMantenimiento()
+
+CuentaCorriente
+	- List<Transaccion> transacciones
+	- double porcentaje
