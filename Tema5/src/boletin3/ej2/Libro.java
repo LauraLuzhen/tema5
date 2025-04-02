@@ -2,28 +2,32 @@ package boletin3.ej2;
 
 public class Libro extends Ficha{
 	
-	private int id2;
+	private String autor;
+	private String titular;
+	
+	public Libro(int num, String titulo, String autor, String titular) {
+		super(num, titulo);
+		if (autor != null && !autor.isBlank()) {
+			this.autor = autor;
+		}
+		if (titular != null && !titular.isBlank() ) {
+			this.titular = titular;
+		}
+	}
 
-	public Libro(int id, String titulo, int id2) {
-		super(id, titulo);
-		this.id2 = id2;
-		// TODO Auto-generated constructor stub
+	public String getAutor() {
+		return autor;
+	}
+
+	public String getTitular() {
+		return titular;
 	}
 	
-	public int getId2() {
-		return id2;
-	}
-	
-	public void tomaLibr() {
-		super.toma();
-		System.out.println("ME CAGO EN EL LIBRO");
-	}
-	
-	public void tom2() {
-		System.out.println("aver si aparece");
+	public void prestamoVia() {
+		System.out.println("El préstamo del libro es de 15 días.");
 	}
 	
 	public String toString() {
-		return "informacion del libro" + id2;
+		return super.toString() + ", autor: " + autor + ", titular: " + titular;
 	}
 }

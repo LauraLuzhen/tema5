@@ -1,36 +1,41 @@
 package boletin3.ej2;
 
-public class Ficha {
-
-	private int id;
+/**
+ * Clase Ficha que define un ficha con los atributos num y titulo
+ */
+public abstract class Ficha {
+	/**
+	 * Atributo num que define el número de la ficha
+	 */
+	private int num;
 	private String titulo;
 	
-	public Ficha(int id, String titulo) {
-		if (id > 0) {
-			this.id = id;
+	public Ficha(int num, String titulo) {
+		if (num > 0) {
+			this.num = num;
 		}
 		if (titulo != null && !titulo.isBlank()) {
 			this.titulo = titulo;
 		}
 	}
 	
-	public int getId() {
-		return id;
+	public int getNum() {
+		return num;
 	}
-
-
 
 	public String getTitulo() {
 		return titulo;
 	}
-
-
-
-	public void toma() {
-		System.out.println("ME CAGO EN LA FICHA");
+	
+	public void setTitulo(String titulo) {
+		if (titulo != null && !titulo.isBlank()) {
+			this.titulo = titulo;
+		}
 	}
+
+	public abstract void prestamoVia();
 	
 	public String toString() {
-		return "informacion ficha";
+		return "Número: " + num + ", titulo: " + titulo;
 	}
 }

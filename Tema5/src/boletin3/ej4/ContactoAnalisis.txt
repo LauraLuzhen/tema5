@@ -1,0 +1,5 @@
+class Contacto
+	- String nombre
+	- long telefono
+	
+	

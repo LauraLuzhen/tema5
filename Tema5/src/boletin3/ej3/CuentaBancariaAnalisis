@@ -1,14 +1,48 @@
-long telefono
-
-double cuota
-double interes
-
-
-#double saldo
-
-+ double aplicarInteres()
-+ double aplicarMantenimiento()
-
-CuentaCorriente
-	- List<Transaccion> transacciones
+class CuentaBancaria
+	- int numCuenta
+	# double saldo
+	
+	- TreeSet<Titular> (min 1 y máx 3)
+	--------------------------------------
+	getNumCuenta()
+	getSaldo()
+	setSaldo()
+	--------------------------------------
+	+ boolean ingresar(double)
+	+ boolean retirar(double)
+	+ boolean añadirTitular(Titular)
+	+ boolean retirarTitular(Titular)
+	
+	
+class Titular 
+	- String dni
+	- String nombre
+	- String apellidos
+	- long telefono
+	
+class CuentaAhorro extends CuentaBancaria
+	- double cuentaMantenimiento
+	- double interesAnual
+	--------------------------------------
+	getCuentaMantenimiento()
+	setCuentaMantenimiento()
+	getInteresAnual()
+	setInteresAnual()
+	--------------------------------------
+	+ double aplicarInteres()
+	+ double aplicarMantenimiento()
+	
+class CuentaCorriente extends CuentaBancaria
 	- double porcentaje
+	--------------------------------------
+	- List<Transaccion>
+	--------------------------------------
+	getPorcentaje()
+	setPorcentaje()
+	
+class Transaccion
+	- int dia
+	- int mes
+	- int año
+	- String concepto
+	- double importe
