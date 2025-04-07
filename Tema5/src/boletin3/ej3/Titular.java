@@ -5,4 +5,6 @@ public class Titular {
 	String nombre;
 	String apellidos;
 	long telefono;
+	
+	
 }
