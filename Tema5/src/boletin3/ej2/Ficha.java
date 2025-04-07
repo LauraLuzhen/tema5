@@ -1,12 +1,6 @@
 package boletin3.ej2;
 
-/**
- * Clase Ficha que define un ficha con los atributos num y titulo
- */
 public abstract class Ficha {
-	/**
-	 * Atributo num que define el número de la ficha
-	 */
 	private int num;
 	private String titulo;
 	

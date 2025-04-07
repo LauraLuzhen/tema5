@@ -1,5 +1,17 @@
 class Contacto
 	- String nombre
 	- long telefono
+	---------------------------------
+	getNombre()
+	getTelefono()
+	setTelefono()
 	
+class Persona extends Contacto
+	- String cumpleaños
+	---------------------------------
+	getCumpleaños()
 	
+class Empresa extends Contacto
+	- String paginaWeb
+	---------------------------------
+	getPaginaWeb
