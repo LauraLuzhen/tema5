@@ -46,7 +46,7 @@ public class Hora {
 	}
 
 	public void setMinuto(int minuto) throws NegativeMinuteException{
-		if (minuto <= 59 && hora >= 0) {
+		if (minuto <= 59 && minuto >= 0) {
 			this.minuto = minuto;
 		} else {
 			throw new NegativeMinuteException();
@@ -58,7 +58,7 @@ public class Hora {
 	}
 
 	public void setSegundo(int segundo) throws NegativeSecondException{
-		if (segundo <= 59 && hora >= 0) {
+		if (segundo <= 59 && segundo >= 0) {
 			this.segundo = segundo;
 		} else {
 			throw new NegativeSecondException();

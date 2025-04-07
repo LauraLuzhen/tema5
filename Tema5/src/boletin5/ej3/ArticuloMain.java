@@ -54,8 +54,8 @@ public class ArticuloMain {
 						System.out.println("No realizado");
 					}
 				} catch (ErrorPriceException e) {
-					System.out.println(e);
-					System.out.println(e.getMessage());
+					System.err.println(e);
+					System.err.println(e.getMessage());
 				}
 			}
 			case 'E' -> {
@@ -122,14 +122,14 @@ public class ArticuloMain {
 		try {
 			articulo = new Articulo(nombre, precio, cuantosQuedan);
 		} catch (ErrorPriceException e) {
-			System.out.println(e);
-			System.out.println(e.getMessage());
+			System.err.println(e);
+			System.err.println(e.getMessage());
 		} catch (ErrorStockException e) {
-			System.out.println(e);
-			System.out.println(e.getMessage());
+			System.err.println(e);
+			System.err.println(e.getMessage());
 		} catch (ErrorNameException e) {
-			System.out.println(e);
-			System.out.println(e.getMessage());
+			System.err.println(e);
+			System.err.println(e.getMessage());
 		}
 		return articulo;
 	}
