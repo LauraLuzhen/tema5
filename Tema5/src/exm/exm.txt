@@ -1,0 +1,44 @@
+class Mando:
+	modelo
+	anchura
+	altura
+	precio
+	boton
+	---------------------------------------
+	no se puede modificar el modelo, altura, anchura
+	---------------------------------------
+	encenderMando()
+	apagarMando()
+	
+class MandoTelevision extends Mando implements Volumen:
+	volumen
+	canal
+	---------------------------------------
+	subirVolumen() (5 en 5)
+	bajarVolumen() (5 en 5)
+	
+class MandoMinicadenas extends Mando implements Volumen:
+	volumen
+	---------------------------------------
+	subirVolumen() (10 en 10)
+	bajarVolumen() (10 en 10)
+	
+class MandoAspiradora extends Mando implements Velocidad:
+	velocidad (max 3)
+	---------------------------------------
+	modificarVelocidad() (1 en 1)
+
+class MandoAireAcondicionado extends Mando implements Velocidad:
+	modo {FRÍO, CALOR} (frio)
+	temperatura
+	velocidad (max 5)
+	---------------------------------------
+	modificarVelocidad() (1 en 1)
+
+interface Volumen:
+	subirVolumen()
+	bajarVolumen()
+	
+interface Velocidad:
+	velocidad = 0
+	modificarVelocidad()
