@@ -1,4 +1,4 @@
-package exm;
+package exminterfaces;
 
 public interface Velocidad {
 

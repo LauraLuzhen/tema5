@@ -1,27 +1,57 @@
-class Mando:
-	modelo
-	anchura
-	altura
-	precio
-	boton
+ErrorModelo
+ErrorAltura
+ErrorAnchura
+ErrorPrecio
+ErrorCanal
+ErrorVolumen
+
+class Mando implements Comparable<Mando>:
+	- String modelo
+	- double anchura
+	- double altura
+	- double precio
+	- boolean boton = false
 	---------------------------------------
-	no se puede modificar el modelo, altura, anchura
+	+ Mando(modelo, altura, anchura, precio) throws ErrorModelo, ErrorAltura, ErrorAnchura, ErrorPrecio
 	---------------------------------------
-	encenderMando()
-	apagarMando()
+	+ getModelo()
+	+ getAnchura()
+	+ getAltura()
+	+ getPrecio()
+	+ isBoton()
+	+ setPrecio() thorws ErrorPrecio
+	---------------------------------------
+	+ void onOff()
+	---------------------------------------
+	Override:
+		+ int compareTo(Mando mando)
+		+ String toString()
+		+ int hashCode()
+		+ boolean equals(Object obj)
+		
 	
 class MandoTelevision extends Mando implements Volumen:
-	volumen
-	canal
+	- int volumen = 0
+	- int canal = 1
 	---------------------------------------
-	subirVolumen() (5 en 5)
-	bajarVolumen() (5 en 5)
+	+ MandoTelevision(modelo, altura, anchura, precio) throws ErroModelo, ErrorAltura, ErrorAnchura, ErrorPrecio
+	---------------------------------------
+	+ getVolumen()
+	+ getCanal()
+	---------------------------------------
+	+ boolean cambiarCanal(canal) throws ErrorCanal
+	---------------------------------------
+	Override:
+		+ boolean subirVolumen() throws ErrorVoluemn
+		+ boolean bajarVolumen() throws ErrorVoluemn
+		+ String toString()
 	
 class MandoMinicadenas extends Mando implements Volumen:
-	volumen
+	volumen = 0
 	---------------------------------------
-	subirVolumen() (10 en 10)
-	bajarVolumen() (10 en 10)
+	Override:
+		subirVolumen() (10 en 10)
+		bajarVolumen() (10 en 10)
 	
 class MandoAspiradora extends Mando implements Velocidad:
 	velocidad (max 3)
@@ -36,8 +66,8 @@ class MandoAireAcondicionado extends Mando implements Velocidad:
 	modificarVelocidad() (1 en 1)
 
 interface Volumen:
-	subirVolumen()
-	bajarVolumen()
+	+ abstract subirVolumen() throws ErrorVoluemn
+	+ abstract bajarVolumen() throws ErrorVoluemn
 	
 interface Velocidad:
 	velocidad = 0
