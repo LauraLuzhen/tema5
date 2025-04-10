@@ -2,8 +2,6 @@ ErrorModelo
 ErrorAltura
 ErrorAnchura
 ErrorPrecio
-ErrorCanal
-ErrorVolumen
 
 class Mando implements Comparable<Mando>:
 	- String modelo
@@ -42,33 +40,57 @@ class MandoTelevision extends Mando implements Volumen:
 	+ boolean cambiarCanal(canal) throws ErrorCanal
 	---------------------------------------
 	Override:
-		+ boolean subirVolumen() throws ErrorVoluemn
-		+ boolean bajarVolumen() throws ErrorVoluemn
+		+ boolean subirVolumen() 
+		+ boolean bajarVolumen() 
 		+ String toString()
 	
 class MandoMinicadenas extends Mando implements Volumen:
-	volumen = 0
+	- int volumen = 0
+	---------------------------------------
+	+ MandoMinicadenas(modelo, altura, anchura, precio) throws ErroModelo, ErrorAltura, ErrorAnchura, ErrorPrecio
+	---------------------------------------
+	+ getVolumen()
 	---------------------------------------
 	Override:
-		subirVolumen() (10 en 10)
-		bajarVolumen() (10 en 10)
+		+ boolean subirVolumen() 
+		+ boolean bajarVolumen()
+		+ String toString() 
 	
 class MandoAspiradora extends Mando implements Velocidad:
-	velocidad (max 3)
+	- int velocidad = 0
 	---------------------------------------
-	modificarVelocidad() (1 en 1)
+	+ MandoAspiradora(modelo, altura, anchura, precio) throws ErroModelo, ErrorAltura, ErrorAnchura, ErrorPrecio
+	---------------------------------------
+	+ getVelocidad()
+	---------------------------------------
+	Override:
+		+ boolean aumentarVelocidad()
+		+ boolean disminuirVelocidad()
+		+ String toString()
 
 class MandoAireAcondicionado extends Mando implements Velocidad:
-	modo {FRÍO, CALOR} (frio)
-	temperatura
-	velocidad (max 5)
+	enum Modo {FRÍO, CALOR}
+	- Modo modo = FRÍO
+	- int velocidad = 0
+	- double temperatura = 0
 	---------------------------------------
-	modificarVelocidad() (1 en 1)
+	+ MandoAireAcondicionado(modelo, altura, anchura, precio) throws ErroModelo, ErrorAltura, ErrorAnchura, ErrorPrecio
+	---------------------------------------
+	+ getVelocidad()
+	+ getTemperatura()
+	+ setTemperatura()
+	+ getModo()
+	+ setModo()
+	---------------------------------------
+	Override:
+		+ boolean aumentarVelocidad()
+		+ boolean disminuirVelocidad()
+		+ String toString()
 
 interface Volumen:
-	+ abstract subirVolumen() throws ErrorVoluemn
-	+ abstract bajarVolumen() throws ErrorVoluemn
+	+ abstract boolean subirVolumen()
+	+ abstract boolean bajarVolumen() 
 	
 interface Velocidad:
-	velocidad = 0
-	modificarVelocidad()
+	+ abstract boolean aumentarVelocidad()
+	+ abstract boolean disminuirVelocidad()

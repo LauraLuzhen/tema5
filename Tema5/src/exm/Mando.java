@@ -1,7 +1,5 @@
 package exm;
 
-import java.util.Objects;
-
 import exmexcepciones.ErrorAltura;
 import exmexcepciones.ErrorAnchura;
 import exmexcepciones.ErrorModelo;
@@ -11,7 +9,7 @@ import exmexcepciones.ErrorPrecio;
  * Clase Mando que define un mando con los siguientes atributos: modelo, altura,
  * anchura, precio y botón. Podrá encender y apagar el mando.
  */
-public class Mando implements Comparable<Mando>{
+public class Mando implements Comparable<Mando> {
 	/**
 	 * Atributo modelo del Mando
 	 */
@@ -32,7 +30,7 @@ public class Mando implements Comparable<Mando>{
 	 * Atributo boton del Mando que por defecto estará a false, es decir apagado.
 	 */
 	private boolean boton = false;
-
+	
 	/**
 	 * Constructor de Mando que recibe modelo, altura, anchura y precio. En caso de
 	 * que no se cumplan los requisitos de cada atributo saltará la excepción
@@ -44,7 +42,8 @@ public class Mando implements Comparable<Mando>{
 	 * @param anchura La anchura del Mando que debe ser mayor que 0
 	 * @param precio  El precio del Mando que debe ser mayor que 0
 	 */
-	public Mando(String modelo, double altura, double anchura, double precio) throws ErrorModelo, ErrorAltura, ErrorAnchura, ErrorPrecio{
+	public Mando(String modelo, double altura, double anchura, double precio)
+			throws ErrorModelo, ErrorAltura, ErrorAnchura, ErrorPrecio {
 		if (modelo != null && !modelo.isBlank()) {
 			this.modelo = modelo;
 		} else {
@@ -67,30 +66,61 @@ public class Mando implements Comparable<Mando>{
 		}
 	}
 
+	/**
+	 * Método get de precio que devuelve su valor
+	 * 
+	 * @return El valor del precio del Mando
+	 */
 	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) throws ErrorPrecio{
+	/**
+	 * Método set de precio que modifica su valor
+	 * 
+	 * @param precio El nuevo valor del precio del Mando
+	 * @throws ErrorPrecio El precio no puede ser igual o menor que 0
+	 */
+	public void setPrecio(double precio) throws ErrorPrecio {
 		if (precio > 0) {
-			this.precio = precio;			
+			this.precio = precio;
 		} else {
 			throw new ErrorPrecio();
 		}
 	}
 
+	/**
+	 * Método is de botón que devuelve su valor
+	 * 
+	 * @return El valor del botón del Mando
+	 */
 	public boolean isBoton() {
 		return boton;
 	}
 
+	/**
+	 * Método get del modelo que devuelve su valor
+	 * 
+	 * @return El valor del modelo del Mando
+	 */
 	public String getModelo() {
 		return modelo;
 	}
 
+	/**
+	 * Método get de altura que devuelve su valor
+	 * 
+	 * @return El valor de la altura del Mando
+	 */
 	public double getAltura() {
 		return altura;
 	}
 
+	/**
+	 * Método get de la anchura que devuelve su valor
+	 * 
+	 * @return El valor de la anchura del Mando
+	 */
 	public double getAnchura() {
 		return anchura;
 	}
@@ -106,21 +136,14 @@ public class Mando implements Comparable<Mando>{
 			this.boton = true;
 		}
 	}
-	
+
 	/**
-	 * Método compareTo el cual se va a ordenar alfabéticamente por el nombre del modelo
+	 * Método compareTo el cual se va a ordenar alfabéticamente por el nombre del
+	 * modelo
 	 */
 	@Override
 	public int compareTo(Mando mando) {
 		return this.modelo.compareTo(mando.modelo);
-	}
-
-	/**
-	 * Método hashCode ambos objetos son iguales si coinciden en el nombre
-	 */
-	@Override
-	public int hashCode() {
-		return Objects.hash(modelo);
 	}
 
 	/**
