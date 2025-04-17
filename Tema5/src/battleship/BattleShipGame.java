@@ -36,6 +36,11 @@ public class BattleShipGame {
 	 * Attribute indicating a column
 	 */
 	private int column;
+	
+	/**
+	 * Constant that indicates the number of ships to be placed
+	 */
+	private static final int NUM_SHIPS = 4;
 
 	/**
 	 * We create the Random
@@ -45,19 +50,19 @@ public class BattleShipGame {
 	/**
 	 * Board where the machine will place its ships
 	 */
-	private char machineTableShips[][] = new char[5][5];
+	private char machineTableShips[][] = new char[10][10];
 	/**
 	 * Board where the machine will shoot
 	 */
-	private char machineTable[][] = new char[5][5];
+	private char machineTable[][] = new char[10][10];
 	/**
 	 * Board where the player will place its ships
 	 */
-	private char playerTableShips[][] = new char[5][5];
+	private char playerTableShips[][] = new char[10][10];
 	/**
 	 * Board where the player will shoot
 	 */
-	private char playerTable[][] = new char[5][5];
+	private char playerTable[][] = new char[10][10];
 
 	/**
 	 * MachineTableShips get method that returns its value
@@ -234,7 +239,7 @@ public class BattleShipGame {
 		int count = 0;
 
 		// While it does not exit the loop until all 4 ships are placed on the board
-		while (count < 4) {
+		while (count < NUM_SHIPS) {
 			// We generate a random value from 0 to the length of the board for the row and
 			// another value for the column
 			row = rand.nextInt(0, machineTable.length);
